@@ -6,17 +6,13 @@ from moviecine.models import Movie, Actor
 class ActorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Actor
-        fields = ('id', 'name', 'image')
+        fields = ('id', 'nome', 'imagem')
 
 
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
-    actors = ActorSerializer(read_only=True, many=True)
-    lookup_field = 'slug'
-    extra_kwargs = {
-        'url': {'lookup_field': 'slug'}
-    }
+    atores = ActorSerializer(read_only=True, many=True)
 
     class Meta:
         model = Movie
         fields = (
-            'id', 'title', 'original_title', 'synopsis', 'image', 'duration', 'published', 'slug', 'likes', 'actors')
+            'id', 'titulo', 'titulo_original', 'sinopse', 'imagem', 'duracao', 'publicado', 'slug', 'likes', 'atores')

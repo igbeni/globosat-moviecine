@@ -24,8 +24,6 @@ class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
     lookup_field = 'slug'
-    # slug_field = 'slug'
-
 
 class IndexView(generic.ListView):
     template_name = 'moviecine/index.html'
